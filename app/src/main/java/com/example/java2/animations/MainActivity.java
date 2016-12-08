@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -37,12 +39,23 @@ public class MainActivity extends AppCompatActivity {
 //                 ActivityOptions options=ActivityOptions.makeScaleUpAnimation(v,0,0,v.getWidth(),v.getHeight());
 //                startActivity(intent,options.toBundle());
 //                move();
-                AnimatorSet anim = new AnimatorSet();
-                anim.play(rotate()).with(blur());
-                anim.start();
-
+//                AnimatorSet anim = new AnimatorSet();
+//                anim.play(rotate()).with(blur());
+//                anim.start();
+                zoom();
             }
         });
+    }
+
+    public void blink() {
+
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animaie);
+        woA.startAnimation(animation);
+    }
+    public void zoom() {
+
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom);
+        woA.startAnimation(animation);
     }
 
     private ObjectAnimator rotate() {
